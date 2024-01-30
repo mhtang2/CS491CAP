@@ -2,8 +2,6 @@
 using namespace std;
 
 #define newl '\n'
-#define all(x) (x).begin(), (x).end()
-#define rall(x) (x).rbegin(), (x).rend()
 
 typedef long long ll;
 typedef pair<int, int> pii;
@@ -11,22 +9,29 @@ typedef vector<int> vi;
 typedef vector<vector<int>> vvi;
 
 const int INF = 1e9;
-const ll MOD = 1e9 + 7;
 
 void solve()
 {
-    int n;
-    cin >> n;
-
-    vi v;
-    for (size_t i = 0; i < n; i++)
+    int na, nb;
+    cin >> na >> nb;
+    map<string, string> servers;
+    // map<string, string> names;
+    for (size_t i = 0; i < na; i++)
     {
-        int tmp;
-        cin >> tmp;
-        v.push_back(tmp);
+        string name, ip;
+        cin >> name >> ip;
+        servers[ip] = name;
     }
-    sort(all(v));
-    cout << v[n-1] - v[0] + v[n-2] - v[1] <<newl;
+    for (size_t i = 0; i < nb; i++)
+    {
+        string command,ip,name;
+        cin >> command >> ip;
+        ip.pop_back();
+        name = servers[ip];
+        cout << command << " "<<ip<<"; #"<<name<<newl;
+    }
+    
+    
 }
 
 int main()
@@ -34,12 +39,6 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int t;
-    cin >> t;
-    while (t--)
-    {
-        solve();
-    }
-
+    solve();
     return 0;
 }
