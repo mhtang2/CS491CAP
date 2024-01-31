@@ -2,6 +2,7 @@
 using namespace std;
 
 #define newl '\n'
+#define forn(i, n) for (int i = 0; i < (int)(n); ++i)
 
 typedef long long ll;
 typedef pair<int, int> pii;
@@ -10,6 +11,7 @@ typedef vector<vector<int>> vvi;
 typedef vector<pii> vpii;
 
 const int INF = 1e9;
+const ll LLINF = 1e18;
 
 void solve() {
    
