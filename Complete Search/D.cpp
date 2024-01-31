@@ -10,20 +10,30 @@ typedef vector<vector<int>> vvi;
 
 const int INF = 1e9;
 
-void solve() {
-   
+void solve()
+{
+    int x;
+    cin >> x;
+    int y = x&(-x);
+    while (x == y or (x & y) == 0)
+    {
+        ++y;
+    }
+    cout << y << newl;
 }
 
-int main() {
+int main()
+{
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    
+
     int t;
     cin >> t;
 
-    while (t--) {
+    while (t--)
+    {
         solve();
     }
-    
+
     return 0;
 }
