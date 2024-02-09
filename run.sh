@@ -12,7 +12,7 @@ if [[ "$1" == "run" ]]; then
     echo "Running on $2.test"
     ./a.out < $2.test
 elif [[ "$1" == "init" ]]; then
-    cp templ.cpp $2.cpp
+    cp -n templ.cpp $2.cpp
     touch $2.test
 else
     echo "Command must be either init or run"
