@@ -3,6 +3,7 @@ using namespace std;
 
 #define newl '\n'
 #define forn(i, n) for (int i = 0; i < (int)(n); ++i)
+#define pb push_back
 
 typedef long long ll;
 typedef pair<int, int> pii;
