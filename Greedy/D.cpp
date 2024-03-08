@@ -48,10 +48,10 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int t;
-    cin >> t;
-    // t = 1;
-    while (t--) {
+    int time;
+    cin >> time;
+    // time = 1;
+    while (time--) {
         solve();
     }
 

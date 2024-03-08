@@ -15,16 +15,16 @@ void solve()
 
     int n;
     cin >> n;
-    vvi a(n, vi(5));
+    vvi x(n, vi(5));
     for (size_t i = 0; i < n; i++)
     {
         for (size_t j = 0; j < 5; j++)
         {
-            cin >> a[i][j];
+            cin >> x[i][j];
         }
     }
 
-    // for (const auto &innerVec : a)
+    // for (const auto &innerVec : x)
     // {
     //     for (const auto &element : innerVec)
     //     {
@@ -44,15 +44,15 @@ void solve()
                 int cntno = 0;
                 for (size_t k = 0; k < n; k++)
                 {
-                    if (a[k][i] == 1)
+                    if (x[k][i] == 1)
                     {
                         cnt1 += 1;
                     }
-                    if (a[k][j] == 1)
+                    if (x[k][j] == 1)
                     {
                         cnt2 += 1;
                     }
-                    if (a[k][i] == 0 && a[k][j] == 0)
+                    if (x[k][i] == 0 && x[k][j] == 0)
                     {
                         cntno += 1;
                     }
