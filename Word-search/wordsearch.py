@@ -3,7 +3,7 @@ import string
 
 N = 15
 n_words = 2
-p_reverse = 1.0
+p_reverse = 0.5
 
 corpus = set()
 with open("oxford5000.txt",'r') as fp:
@@ -49,6 +49,14 @@ def v_print(s):
     for c in s:
         print(c,end="\n")
 
+def d1_print(s):
+    for i,c in enumerate(s):
+        print("  "*i + c,end="\n")
+
+def d2_print(s):
+    for i,c in enumerate(s):
+        print("  "*(len(s)-i) + c,end="\n")
+
 print()
 print_fn = h_print
 while True:
@@ -66,6 +74,10 @@ while True:
         print_fn = h_print
     if inp=='v':
         print_fn = v_print
+    if inp =='d1':
+        print_fn = d1_print
+    if inp == 'd2':
+        print_fn = d2_print
         
 
 
