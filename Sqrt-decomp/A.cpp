@@ -1,0 +1,67 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define newl '\n'
+#define forn(i, n) for (int i = 0; i < (int)(n); ++i)
+#define pb push_back
+
+typedef long long ll;
+typedef pair<int, int> pii;
+typedef pair<ll, ll> pll;
+typedef vector<int> vi;
+typedef vector<ll> vll;
+typedef vector<vector<int>> vvi;
+typedef vector<pii> vpii;
+
+const int INF = 1e9;
+const ll LLINF = 1e18;
+
+void solve() {
+    int n, m;
+    cin >> n >> m;
+
+    n++;
+    int blockSize = static_cast<int>(sqrt(n));
+    int nblocks = (n + blockSize - 1) / blockSize;
+    vll blockSums(nblocks);
+    vll arr(n);
+
+    int typ, i, v, L, R;
+    forn(line, m) {
+        cin >> typ;
+        if (typ == 1) {
+            cin >> i >> v;
+            arr[i] += v;
+            blockSums[i / blockSize] += v;
+        }
+        if (typ == 2) {
+            cin >> L >> R;
+            int sum = 0;
+            int startBlock = L / blockSize;
+            int endBlock = R / blockSize;
+            if (startBlock == endBlock) {
+                for (int i = L; i <= R; ++i) sum += arr[i];
+            } else {
+                for (int i = L, end = (startBlock + 1) * blockSize - 1; i <= end; ++i) sum += arr[i];
+                for (int i = startBlock + 1; i <= endBlock - 1; ++i) sum += blockSums[i];
+                for (int i = endBlock * blockSize; i <= R; ++i) sum += arr[i];
+            }
+            cout << sum << newl;
+        }
+    }
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    t = 1;
+    // cin >> t;
+    while (t--) {
+        solve();
+    }
+
+    return 0;
+}
+
